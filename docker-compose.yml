@@ -13,7 +13,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./config/traefik.yaml:/etc/traefik/traefik.yml:ro
       - ./data/certs:/var/traefik/certs:rw
-      #- ./acme.json:/etc/traefik/acme.json:rw
+      - ./acme.json:/etc/traefik/acme.json:rw
     networks:
       - traefik-network
     restart: unless-stopped
