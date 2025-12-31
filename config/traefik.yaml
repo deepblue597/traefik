@@ -14,7 +14,7 @@ entryPoints:
 certificatesResolvers:
   cloudflare:
     acme:
-      email: iasonas2001@hotmail.com
+      email: youremail
       storage: /etc/traefik/acme.json
       caServer: "https://acme-v02.api.letsencrypt.org/directory"
       keyType: EC256
