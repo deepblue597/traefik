@@ -1,0 +1,29 @@
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+log:
+  level: DEBUG # Set log level to DEBUG for more detailed logs
+api:
+  dashboard: true
+  insecure: true
+entryPoints:
+  web:
+    address: :80
+  websecure:
+    address: :443
+certificatesResolvers:
+  cloudflare:
+    acme:
+      email: iasonas2001@hotmail.com
+      storage: acme.json
+      caServer: "https://acme-v02.api.letsencrypt.org/directory"
+      keyType: EC256
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - "1.1.1.1:53"
+          - "8.8.8.8:53"
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock" # Use Docker socket as provider
+    exposedByDefault: false # Only expose containers with explicit labels
